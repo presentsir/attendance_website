@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model School {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String   @unique
+  affNo       String
+  state       String
+  district    String
+  region      String
+  address     String
+  pincode     String
+  teachers    Teacher[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Teacher {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String
+  mobile      String
+  schoolId    Int
+  school      School   @relation(fields: [schoolId], references: [id])
+  classes     Class[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Class {
+  id          Int      @id @default(autoincrement())
+  name        String
+  teacherId   Int
+  teacher     Teacher  @relation(fields: [teacherId], references: [id])
+  students    Student[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Student {
+  id          Int      @id @default(autoincrement())
+  rollNumber  String
+  name        String
+  mobile      String
+  classId     Int
+  class       Class    @relation(fields: [classId], references: [id])
+  attendance  Attendance[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Attendance {
+  id          Int      @id @default(autoincrement())
+  date        DateTime
+  status      String   // "Present" or "Absent"
+  studentId   Int
+  student     Student  @relation(fields: [studentId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
