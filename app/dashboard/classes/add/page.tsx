@@ -6,6 +6,7 @@ export default function AddClassPage() {
   const [name, setName] = useState('')
   const [teacherId, setTeacherId] = useState('')
   const router = useRouter()
+  
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
