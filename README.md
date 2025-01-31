@@ -1,3 +1,59 @@
+``` 
+attendance_website/
+├── app/
+│ ├── api/
+│ │ ├── auth/
+│ │ │ └── [...nextauth]/
+│ │ │ └── route.ts
+│ │ ├── classes/
+│ │ │ └── route.ts
+│ │ ├── students/
+│ │ │ └── route.ts
+│ │ ├── teachers/
+│ │ │ └── route.ts
+│ │ └── attendance/
+│ │ └── route.ts
+│ ├── dashboard/
+│ │ ├── page.tsx
+│ │ ├── teachers/
+│ │ │ ├── page.tsx
+│ │ │ └── add/
+│ │ │ └── page.tsx
+│ │ ├── classes/
+│ │ │ ├── page.tsx
+│ │ │ └── add/
+│ │ │ └── page.tsx
+│ │ ├── students/
+│ │ │ ├── page.tsx
+│ │ │ └── add/
+│ │ │ └── page.tsx
+│ │ └── attendance/
+│ │ ├── page.tsx
+│ │ └── add/
+│ │ └── page.tsx
+│ ├── page.tsx
+│ └── layout.tsx
+├── prisma/
+│ └── schema.prisma
+├── public/
+│ └── favicon.ico
+├── .env
+├── .gitignore
+├── next.config.js
+├── package.json
+├── package-lock.json
+├── postcss.config.js
+├── tailwind.config.js
+└── tsconfig.json
+
+```
+
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
